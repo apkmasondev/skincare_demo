@@ -35,8 +35,10 @@ preloadRestAsync();
 const initFirstFrame = () => {
   if(context && images[1].width > 0) {
     canvas.width = images[1].width;
-    canvas.height = images[1].height;
-    context.drawImage(images[1], 0, 0, canvas.width, canvas.height);
+    // Odrzucamy 35% obrazu od dołu (pustą, niepotrzebną białą podłogę),
+    // by słoiczek był naturalnie wykadrowany.
+    canvas.height = images[1].height * 0.65;
+    context.drawImage(images[1], 0, 0, images[1].width, images[1].height);
   }
 };
 
@@ -49,7 +51,7 @@ const updateImage = (index: number) => {
   const img = images[index];
   if (context && img && img.complete && img.naturalWidth > 0) {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    context.drawImage(img, 0, 0, img.width, img.height);
   }
 }
 
