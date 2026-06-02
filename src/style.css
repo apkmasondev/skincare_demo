@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -212,7 +213,7 @@ canvas#product-canvas {
   width: 100%;
   height: 100%;
   max-width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
 }
 
@@ -250,7 +251,7 @@ canvas#product-canvas {
 /* Details Section */
 .details-section {
   background: var(--color-offwhite);
-  padding: var(--space-2xl) 2rem;
+  padding: 4rem 2rem;
   position: relative;
   z-index: 4;
 }
@@ -329,7 +330,7 @@ canvas#product-canvas {
 /* Features Grid */
 .features-grid {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 4rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
@@ -372,8 +373,10 @@ canvas#product-canvas {
 .clinical-results {
   background-color: var(--color-charcoal);
   color: var(--color-white);
-  padding: var(--space-2xl) 2rem;
+  padding: 4rem 2rem;
   text-align: center;
+  position: relative;
+  z-index: 4;
 }
 
 .clinical-container {
