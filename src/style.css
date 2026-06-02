@@ -46,6 +46,9 @@ h1, h2, h3, h4 {
   margin: 0 auto 1.5rem;
   font-weight: 200;
   animation: weightIn 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  text-align: center;
+  color: var(--color-charcoal);
+  text-shadow: 0 4px 40px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.9);
 }
 
 @keyframes weightIn {
@@ -56,7 +59,10 @@ h1, h2, h3, h4 {
   font-size: clamp(18px, 2vw, 22px);
   max-width: 42ch;
   margin: 0 auto 3rem;
-  color: #555;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 0 4px 30px rgba(255,255,255,1), 0 0 15px rgba(255,255,255,0.9);
 }
 
 /* Navbar */
@@ -212,22 +218,12 @@ canvas#product-canvas {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   z-index: 2;
-  padding: 0 2rem;
-}
-
-.hero-text-wrapper {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 4rem 2rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  max-width: 800px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-  text-align: center;
+  padding: 18vh 2rem 0;
+  will-change: opacity;
 }
 
 /* Details Section */

@@ -34,9 +34,10 @@ const updateImage = (index: number) => {
   }
 }
 
-// Logika łączenia scrolla z numerem klatki
+// Logika łączenia scrolla z numerem klatki i zanikaniem tekstu
 window.addEventListener('scroll', () => {
   const showcase = document.querySelector('.hero') as HTMLElement;
+  const heroContent = document.querySelector('.hero-content') as HTMLElement;
   
   if(showcase) {
     const rect = showcase.getBoundingClientRect();
@@ -54,6 +55,14 @@ window.addEventListener('scroll', () => {
     );
     
     requestAnimationFrame(() => updateImage(frameIndex + 1));
+    
+    // Płynne znikanie tekstu podczas przewijania w dół (efekt premium)
+    if(heroContent) {
+      let opacity = 1 - (scrollPosition / 400); // całkowite zniknięcie po 400px
+      if (opacity < 0) opacity = 0;
+      if (opacity > 1) opacity = 1;
+      heroContent.style.opacity = opacity.toString();
+    }
   }
 });
 
