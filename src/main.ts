@@ -3,34 +3,38 @@ const context = canvas.getContext('2d');
 const frameCount = 160;
 
 // Zwraca odpowiednią ścieżkę do klatki w folderze /sequence
+// Używamy import.meta.env.BASE_URL dla poprawnego działania na GitHub Pages
 const currentFrame = (index: number) => 
-  `/sequence/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`;
+  `${import.meta.env.BASE_URL}sequence/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`;
+
+const images: HTMLImageElement[] = [];
 
 const preloadImages = () => {
   for (let i = 1; i <= frameCount; i++) {
     const img = new Image();
     img.src = currentFrame(i);
+    images[i] = img;
+  }
+};
+preloadImages();
+
+const initFirstFrame = () => {
+  if(context && images[1].width > 0) {
+    canvas.width = images[1].width;
+    canvas.height = images[1].height;
+    context.drawImage(images[1], 0, 0, canvas.width, canvas.height);
   }
 };
 
-const img = new Image();
-img.src = currentFrame(1);
-
-img.onload = function() {
-  if(context) {
-    // Ustaw naturalne proporcje klatki zamiast sztywnego 800x800
-    canvas.width = img.width;
-    canvas.height = img.height;
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-  }
+images[1].onload = initFirstFrame;
+if (images[1].complete) {
+  initFirstFrame();
 }
 
 const updateImage = (index: number) => {
-  img.src = currentFrame(index);
-  if(context) {
-    // Wyczyść płótno przed narysowaniem nowej klatki (dobra praktyka)
+  if(context && images[index]) {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    context.drawImage(images[index], 0, 0, canvas.width, canvas.height);
   }
 }
 
