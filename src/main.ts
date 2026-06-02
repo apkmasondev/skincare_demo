@@ -76,10 +76,10 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-// Intersection Observer dla tekstów obok Canvasa
-const textBlocks = document.querySelectorAll('.text-block');
+// Intersection Observer dla tekstów Premium
+const premiumBlocks = document.querySelectorAll('.premium-block');
 const textOptions = {
-  threshold: 0.5,
+  threshold: 0.3,
   rootMargin: "0px 0px -10% 0px"
 };
 
@@ -87,10 +87,8 @@ const textObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('active');
-    } else {
-      entry.target.classList.remove('active');
     }
   });
 }, textOptions);
 
-textBlocks.forEach(el => textObserver.observe(el));
+premiumBlocks.forEach(el => textObserver.observe(el));
