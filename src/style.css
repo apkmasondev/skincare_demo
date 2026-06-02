@@ -179,7 +179,7 @@ h1, h2, h3, h4 {
 }
 
 .hero {
-  height: 250vh;
+  height: 200vh;
   position: relative;
   background-color: var(--color-white);
   padding: 0;
@@ -212,7 +212,7 @@ canvas#product-canvas {
   width: 100%;
   height: 100%;
   max-width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
 }
 
@@ -267,8 +267,8 @@ canvas#product-canvas {
   display: flex;
   align-items: center;
   gap: 4rem;
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: none;
   transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -278,7 +278,7 @@ canvas#product-canvas {
 
 .premium-block.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .premium-number {
