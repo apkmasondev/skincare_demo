@@ -50,13 +50,26 @@ h1, h2, h3, h4 {
 .hero-headline {
   font-family: 'Playfair Display', serif;
   font-size: clamp(48px, 8vw, 84px);
-  max-width: 20ch;
   margin: 0 auto 1.5rem;
   font-weight: 600;
   color: var(--color-charcoal);
   letter-spacing: -0.02em;
   opacity: 0;
   animation: fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-headline .numero {
+  font-size: 0.6em;
+  font-weight: 400;
+  display: inline-block;
+  transform: translateY(-0.25em);
+  letter-spacing: 0;
+  margin: 0 0.05em;
 }
 
 @keyframes fadeUp {
