@@ -46,9 +46,10 @@ if (images[1].complete) {
 }
 
 const updateImage = (index: number) => {
-  if(context && images[index]) {
+  const img = images[index];
+  if (context && img && img.complete && img.naturalWidth > 0) {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(images[index], 0, 0, canvas.width, canvas.height);
+    context.drawImage(img, 0, 0, canvas.width, canvas.height);
   }
 }
 
