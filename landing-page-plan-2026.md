@@ -183,3 +183,14 @@ Clean design stawiający treść na pierwszym miejscu: generous whitespace, clea
 ---
 
 *Plan stworzony na podstawie researchu trendów: Figma Web Design Trends 2026, Moburst Landing Page Trends 2026, SaaSFrame Blog, Lovable Design Guides, Fontfabric Typography Trends 2026.*
+
+---
+
+## Dziennik Postępów (Czerwiec 2026)
+- Zaimplementowano sekwencję animacji 3D słoiczka za pomocą elementu `<canvas>` sterowaną scrollem (scroll-driven 3D rotation).
+- Wdrożono superszybkie, asynchroniczne doczytywanie klatek w tle (`requestIdleCallback`) eliminujące tzw. "białe klatki".
+- Zastosowano poprawki kadrowania CSS (`object-fit: cover`) z idealnym wpasowaniem wizualizacji w panoramiczne ekrany.
+- Rozwiązano błędy renderowania silników WebKit/Blink związane ze znikającym `backdrop-filter` przy scrollowaniu (usunięto `will-change`).
+- Usunięto luki w wyświetlaniu zawartości (niewidzialne sekcje) stabilizując widoczność po opóźnionym renderowaniu przez IntersectionObserver.
+- Dopracowano odstępy międzysekcyjne i offsety dla kotwic sticky nav (`scroll-padding-top`).
+- Zmieniono nagłówek Hero na premium szeryfowy (Playfair Display) dla efektu luksusowego produktu.
