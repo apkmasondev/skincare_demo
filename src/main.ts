@@ -9,14 +9,28 @@ const currentFrame = (index: number) =>
 
 const images: HTMLImageElement[] = [];
 
-const preloadImages = () => {
-  for (let i = 1; i <= frameCount; i++) {
-    const img = new Image();
-    img.src = currentFrame(i);
-    images[i] = img;
-  }
+// Załaduj tylko pierwszą klatkę natychmiast, aby drastycznie przyspieszyć LCP
+const preloadFirstFrame = () => {
+  const img = new Image();
+  img.src = currentFrame(1);
+  images[1] = img;
 };
-preloadImages();
+preloadFirstFrame();
+
+// Resztę klatek doczytaj w tle, aby nie blokować sieci
+const preloadRestAsync = () => {
+  window.addEventListener('load', () => {
+    const preloader = window.requestIdleCallback || window.setTimeout;
+    preloader(() => {
+      for (let i = 2; i <= frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        images[i] = img;
+      }
+    });
+  });
+};
+preloadRestAsync();
 
 const initFirstFrame = () => {
   if(context && images[1].width > 0) {
@@ -108,3 +122,26 @@ const textObserver = new IntersectionObserver((entries) => {
 }, textOptions);
 
 premiumBlocks.forEach(el => textObserver.observe(el));
+
+// Obsługa logiki formularza zapisu (UX / Konwersja)
+const emailForm = document.querySelector('.email-capture') as HTMLFormElement;
+if (emailForm) {
+  emailForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = emailForm.querySelector('input') as HTMLInputElement;
+    const btn = emailForm.querySelector('button') as HTMLButtonElement;
+    if (input && input.value) {
+      input.style.display = 'none';
+      btn.style.display = 'none';
+      
+      const successMsg = document.createElement('div');
+      successMsg.textContent = 'Dziękujemy! Otrzymasz wcześniejszy dostęp do premiery.';
+      successMsg.style.color = 'var(--color-emerald)';
+      successMsg.style.fontWeight = '600';
+      successMsg.style.padding = '0.8rem';
+      successMsg.style.fontSize = '1.1rem';
+      
+      emailForm.appendChild(successMsg);
+    }
+  });
+}

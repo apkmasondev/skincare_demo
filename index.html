@@ -5,6 +5,12 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biotech Skin Lab | Formuła 734-B</title>
+  <meta name="description" content="Rewolucja w pielęgnacji. Zaawansowane serum z komórkami macierzystymi jabłoni. Poznaj Formułę 734-B od Biotech Skin Lab." />
+  <meta property="og:title" content="Biotech Skin Lab | Formuła 734-B" />
+  <meta property="og:description" content="Luksusowe serum biotechnologiczne do twarzy z roślinnymi komórkami macierzystymi." />
+  <meta property="og:image" content="https://apkmasondev.github.io/skincare_demo/sequence/ezgif-frame-001.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://apkmasondev.github.io/skincare_demo/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap" rel="stylesheet">
@@ -27,7 +33,7 @@
   <main>
     <section class="hero" id="formula">
       <div class="hero-canvas-container">
-        <canvas id="product-canvas"></canvas>
+        <canvas id="product-canvas" aria-label="Interaktywna obracająca się wizualizacja produktu Formuła 734-B" role="img"></canvas>
       </div>
       <div class="hero-content">
         <div class="hero-text-wrapper">
@@ -90,6 +96,26 @@
       </div>
     </section>
 
+    <section class="clinical-results">
+      <div class="clinical-container">
+        <h2 class="clinical-title">Skuteczność potwierdzona badaniami</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">98%</div>
+            <p>Potwierdzona poprawa ujędrnienia i elastyczności skóry w zaledwie 14 dni stosowania.</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">-32%</div>
+            <p>Średnia redukcja widocznych przebarwień i drobnych zmarszczek mimicznych po 28 dniach.</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <p>Doskonała tolerancja u kobiet z cerą wrażliwą. Brak podrażnień w testach dermatologicznych.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="faq" id="faq">
       <h2 class="faq-title">Najczęstsze pytania</h2>
       <div class="faq-list">
@@ -128,9 +154,9 @@
     <div class="footer-links">
       <div>&copy; 2026 Biotech Skin Lab. All rights reserved.</div>
       <div class="socials">
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-        <a href="#">Regulamin</a>
+        <a href="#" onclick="event.preventDefault();">Instagram</a>
+        <a href="#" onclick="event.preventDefault();">TikTok</a>
+        <a href="#" onclick="event.preventDefault();">Regulamin</a>
       </div>
     </div>
   </footer>

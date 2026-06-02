@@ -33,6 +33,12 @@ body {
   overflow-x: hidden;
 }
 
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-emerald);
+  outline-offset: 4px;
+}
+
 /* Typography */
 h1, h2, h3, h4 {
   line-height: 1.1;
@@ -358,6 +364,57 @@ canvas#product-canvas {
 .feature-card p {
   color: #666;
   font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Clinical Results Section */
+.clinical-results {
+  background-color: var(--color-charcoal);
+  color: var(--color-white);
+  padding: var(--space-2xl) 2rem;
+  text-align: center;
+}
+
+.clinical-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.clinical-title {
+  font-size: clamp(32px, 4vw, 48px);
+  margin-bottom: 4rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+}
+
+.stat-card {
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,0.03);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.stat-number {
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 200;
+  color: var(--color-emerald);
+  margin-bottom: 1rem;
+}
+
+.stat-card p {
+  color: #aaa;
+  font-size: 1.05rem;
+  line-height: 1.6;
   margin: 0;
 }
 
