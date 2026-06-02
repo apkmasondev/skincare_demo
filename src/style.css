@@ -341,8 +341,8 @@ canvas#product-canvas {
   background: var(--color-white);
   border: 1px solid rgba(0,0,0,0.05);
   border-radius: var(--radius-lg);
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
