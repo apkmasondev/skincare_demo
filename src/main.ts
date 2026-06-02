@@ -33,7 +33,7 @@ const updateImage = (index: number) => {
 
 // Logika łączenia scrolla z numerem klatki
 window.addEventListener('scroll', () => {
-  const showcase = document.querySelector('.showcase') as HTMLElement;
+  const showcase = document.querySelector('.hero') as HTMLElement;
   
   if(showcase) {
     const rect = showcase.getBoundingClientRect();
