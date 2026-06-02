@@ -15,11 +15,12 @@ const preloadImages = () => {
 
 const img = new Image();
 img.src = currentFrame(1);
-canvas.width = 800;
-canvas.height = 800;
 
 img.onload = function() {
   if(context) {
+    // Ustaw naturalne proporcje klatki zamiast sztywnego 800x800
+    canvas.width = img.width;
+    canvas.height = img.height;
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
   }
 }
@@ -27,6 +28,8 @@ img.onload = function() {
 const updateImage = (index: number) => {
   img.src = currentFrame(index);
   if(context) {
+    // Wyczyść płótno przed narysowaniem nowej klatki (dobra praktyka)
+    context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
   }
 }
