@@ -18,11 +18,12 @@
   --radius-pill: 999px;
   
   --font-sans: 'Inter', sans-serif;
+  --nav-height: 80px;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: calc(var(--nav-height) + 20px);
 }
 
 body {
@@ -91,6 +92,7 @@ h1, h2, h3, h4 {
   position: fixed;
   top: 0;
   width: 100%;
+  height: var(--nav-height);
   z-index: 100;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -102,7 +104,8 @@ h1, h2, h3, h4 {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -215,8 +218,8 @@ h1, h2, h3, h4 {
 
 .hero-canvas-container {
   position: sticky;
-  top: 80px;
-  height: calc(100vh - 80px);
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
   width: 100%;
   display: flex;
   justify-content: center;
