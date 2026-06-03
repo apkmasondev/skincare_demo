@@ -145,3 +145,22 @@ if (emailForm) {
     }
   });
 }
+
+// Obsługa menu mobilnego
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileBtn && navLinks) {
+  mobileBtn.addEventListener('click', () => {
+    const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+    mobileBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+    navLinks.classList.toggle('is-open');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileBtn.setAttribute('aria-expanded', 'false');
+      navLinks.classList.remove('is-open');
+    });
+  });
+}
