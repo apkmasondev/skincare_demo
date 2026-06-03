@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biotech Skin Lab | Formuła 734-B</title>
   <meta name="description" content="Rewolucja w pielęgnacji. Zaawansowane serum z komórkami macierzystymi jabłoni. Poznaj Formułę 734-B od Biotech Skin Lab." />
@@ -18,17 +18,19 @@
 </head>
 <body>
   
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="logo">Biotech Skin Lab</div>
-      <div class="nav-links">
-        <a href="#formula">Formuła 734-B</a>
-        <a href="#benefits">Korzyści</a>
-        <a href="#faq">FAQ</a>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">Biotech Skin Lab</div>
+        <div class="nav-links">
+          <a href="#formula">Formuła 734-B</a>
+          <a href="#benefits">Korzyści</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <a href="#buy" class="cta-btn ghost">Kup teraz</a>
       </div>
-      <a href="#buy" class="cta-btn ghost">Kup teraz</a>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <main>
     <section class="hero" id="formula">
@@ -78,17 +80,17 @@
     <section class="features" id="benefits">
       <div class="features-grid">
         <div class="feature-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           <h3>Odbudowa Kolagenu</h3>
           <p>Wzrost elastyczności skóry widoczny już po 14 dniach regularnego stosowania.</p>
         </div>
         <div class="feature-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           <h3>Rozświetlenie</h3>
           <p>Redukcja drobnych przebarwień i wyrównanie tonu cery, pozostawiające młodzieńczy blask.</p>
         </div>
         <div class="feature-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <h3>Ukojenie Hydrolipidowe</h3>
           <p>Wsparcie bariery hydrolipidowej, głęboka hydratacja i natychmiastowe łagodzenie podrażnień.</p>
         </div>
@@ -145,14 +147,16 @@
     <div class="cta-content">
       <h2>Gotowa na biotechnologiczną transformację?</h2>
       <p>Dołącz do klientek Biotech Skin Lab i przywróć swojej skórze promienny, ponadczasowy blask.</p>
-      <form class="email-capture" onsubmit="event.preventDefault();">
-        <input type="email" placeholder="Wprowadź swój adres e-mail..." required />
+      <form class="email-capture">
+        <label for="email-input" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Adres e-mail</label>
+        <input type="email" id="email-input" name="email" autocomplete="email" placeholder="Wprowadź swój adres e-mail..." required />
         <button type="submit" class="cta-btn primary">Zamów Formułę 734-B</button>
       </form>
     </div>
     <div class="footer-links">
       <div>&copy; 2026 Biotech Skin Lab. All rights reserved.</div>
       <div class="socials">
+        <!-- TODO: Zastąpić poniższe linki rzeczywistymi adresami URL -->
         <a href="#" onclick="event.preventDefault();">Instagram</a>
         <a href="#" onclick="event.preventDefault();">TikTok</a>
         <a href="#" onclick="event.preventDefault();">Regulamin</a>

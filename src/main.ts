@@ -85,7 +85,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-preloadImages();
 
 // Intersection Observer dla animacji kart "Features"
 const revealElements = document.querySelectorAll('.feature-card');
