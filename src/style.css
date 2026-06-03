@@ -218,8 +218,8 @@ h1, h2, h3, h4 {
 
 .hero-canvas-container {
   position: sticky;
-  top: var(--nav-height);
-  height: calc(100vh - var(--nav-height));
+  top: calc(var(--nav-height) - 1px);
+  height: calc(100vh - var(--nav-height) + 1px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -247,7 +247,7 @@ canvas#product-canvas {
   justify-content: flex-start;
   align-items: center;
   z-index: 2;
-  padding: 12vh 2rem 0;
+  padding: 22vh 2rem 0;
 }
 
 .hero-text-wrapper {
