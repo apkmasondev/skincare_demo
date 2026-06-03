@@ -215,8 +215,8 @@ h1, h2, h3, h4 {
 
 .hero-canvas-container {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 80px;
+  height: calc(100vh - 80px);
   width: 100%;
   display: flex;
   justify-content: center;
