@@ -282,18 +282,24 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(249, 248, 246, 0.75);
+  background: rgba(249, 248, 246, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   color: var(--text-primary);
   box-shadow: var(--glass-shadow);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+  -webkit-touch-callout: none;
   transition: all 0.25s var(--ease-smooth);
 }
 
-.sound-icon-btn:hover {
-  background: rgba(255, 255, 255, 0.95);
-  transform: scale(1.06);
+@media (hover: hover) {
+  .sound-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.06);
+  }
 }
 
 .sound-icon-btn.is-active {
@@ -351,7 +357,13 @@
 
 .is-mobile .phase1-content {
   text-align: center;
-  max-width: 90vw;
+  max-width: 92vw;
+  padding: 0 1rem;
+}
+
+.is-mobile .phase1-content .headline {
+  font-size: clamp(1.8rem, 6.5vw, 2.6rem);
+  letter-spacing: 0.08em;
 }
 
 .is-mobile .phase-2 {
@@ -364,7 +376,22 @@
 
 .is-mobile .phase2-content {
   text-align: center;
-  max-width: 90vw;
+  max-width: 92vw;
+  padding: 0 1rem;
+}
+
+.is-mobile .phase2-content .hero-title {
+  font-size: clamp(1.75rem, 7.2vw, 2.75rem);
+  letter-spacing: 0.1em;
+  line-height: 1.05;
+  margin-bottom: 0.4rem;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.is-mobile .phase2-content .hero-subtitle {
+  font-size: clamp(0.75rem, 3.2vw, 0.95rem);
+  letter-spacing: 0.24em;
 }
 
 .is-mobile .phase3-layout {
@@ -450,15 +477,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(249, 248, 246, 0.8);
+  background: rgba(249, 248, 246, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   color: var(--text-primary);
   box-shadow: var(--glass-shadow);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  transition: transform 0.15s var(--ease-smooth), background-color 0.2s var(--ease-smooth);
+}
+
+.mobile-control-btn:focus,
+.mobile-control-btn:active {
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.mobile-control-btn:active {
+  transform: scale(0.92);
+}
+
+@media (hover: hover) {
+  .mobile-control-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.05);
+  }
 }
 
 /* ==========================================================================

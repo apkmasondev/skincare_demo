@@ -2,6 +2,13 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.4.2] - 2026-08-05
+
+### Fixed
+- Fixed mobile heading truncation: scaled `hero-title` (`APKMASON`) font-size and letter-spacing (`clamp(1.75rem, 7.2vw, 2.75rem)` & `0.1em`) to prevent letter 'N' clipping on 360px-414px viewports.
+- Removed default WebKit blue/cyan tap highlight box (`-webkit-tap-highlight-color: transparent`) on mobile play/pause/replay and sound buttons.
+- Isolated button hover animations behind `@media (hover: hover)` to prevent sticky hover states on touch devices.
+
 ## [1.4.1] - 2026-08-05
 
 ### Fixed

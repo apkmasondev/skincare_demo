@@ -60,4 +60,12 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
+
+button:focus {
+  outline: none;
+}
+
