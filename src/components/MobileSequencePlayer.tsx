@@ -7,23 +7,29 @@ import { SoundToggle } from './SoundToggle';
 
 export const MobileSequencePlayer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const isMountedRef = useRef<boolean>(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [isEnded, setIsEnded] = useState(false);
   const [phase, setPhase] = useState<OverlayPhase>('phase1');
 
   useEffect(() => {
+    isMountedRef.current = true;
     const video = videoRef.current;
     if (!video) return;
 
     const handleTimeUpdate = () => {
-      setPhase(getMobileOverlayPhase(video.currentTime));
+      if (isMountedRef.current) {
+        setPhase(getMobileOverlayPhase(video.currentTime));
+      }
     };
 
     const handleEnded = () => {
-      setIsEnded(true);
-      setIsPlaying(false);
-      setPhase('phase3');
+      if (isMountedRef.current) {
+        setIsEnded(true);
+        setIsPlaying(false);
+        setPhase('phase3');
+      }
     };
 
     video.addEventListener('timeupdate', handleTimeUpdate);
@@ -31,10 +37,13 @@ export const MobileSequencePlayer: React.FC = () => {
 
     // Attempt autoplay
     video.play().catch(() => {
-      setIsPlaying(false);
+      if (isMountedRef.current) {
+        setIsPlaying(false);
+      }
     });
 
     return () => {
+      isMountedRef.current = false;
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('ended', handleEnded);
     };
@@ -52,7 +61,9 @@ export const MobileSequencePlayer: React.FC = () => {
         video.currentTime = 0;
         setIsEnded(false);
       }
-      video.play().then(() => setIsPlaying(true)).catch(() => {});
+      video.play().then(() => {
+        if (isMountedRef.current) setIsPlaying(true);
+      }).catch(() => {});
     }
   };
 
@@ -61,7 +72,9 @@ export const MobileSequencePlayer: React.FC = () => {
     if (!video) return;
     video.currentTime = 0;
     setIsEnded(false);
-    video.play().then(() => setIsPlaying(true)).catch(() => {});
+    video.play().then(() => {
+      if (isMountedRef.current) setIsPlaying(true);
+    }).catch(() => {});
   };
 
   return (

@@ -31,7 +31,6 @@ export function useSmoothScrollProgress(runwayRef: React.RefObject<HTMLDivElemen
         return;
       }
 
-      // runwayRect.top is negative as we scroll down
       const currentScroll = -runwayRect.top;
       const rawProgress = currentScroll / totalScrollableDistance;
       targetProgressRef.current = clamp(rawProgress, 0, 1);
@@ -41,21 +40,21 @@ export function useSmoothScrollProgress(runwayRef: React.RefObject<HTMLDivElemen
       const deltaMs = Math.min(now - lastTimeRef.current, 64);
       lastTimeRef.current = now;
 
-      updateTargetProgress();
-
       const alpha = calculateDecayAlpha(deltaMs, EXPERIENCE_CONFIG.SMOOTHING_MS);
       const prevRendered = renderedProgressRef.current;
       const nextRendered = lerp(prevRendered, targetProgressRef.current, alpha);
 
-      // Snap if very close
-      if (Math.abs(nextRendered - targetProgressRef.current) < 0.0001) {
-        renderedProgressRef.current = targetProgressRef.current;
+      const target = targetProgressRef.current;
+      const isSnapped = Math.abs(nextRendered - target) < 0.0001;
+
+      if (isSnapped) {
+        renderedProgressRef.current = target;
       } else {
         renderedProgressRef.current = nextRendered;
       }
 
-      // Emits React state updates ONLY when progress changes significantly (>0.015) to prevent unnecessary re-renders
-      if (Math.abs(renderedProgressRef.current - lastEmittedProgressRef.current) > 0.015) {
+      const deltaEmitted = Math.abs(renderedProgressRef.current - lastEmittedProgressRef.current);
+      if (deltaEmitted > 0.015 || (isSnapped && deltaEmitted > 0.0001)) {
         lastEmittedProgressRef.current = renderedProgressRef.current;
         setProgressState({
           targetProgress: targetProgressRef.current,

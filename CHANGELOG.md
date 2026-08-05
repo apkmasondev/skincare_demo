@@ -2,6 +2,15 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.5.0] - 2026-08-05
+
+### Fixed
+- **Performance & RAF Optimization**: Eliminated forced synchronous layout thrashing (`getBoundingClientRect()`) inside the `requestAnimationFrame` loop in `useSmoothScrollProgress.ts`. Scroll targets are now measured exclusively on scroll/resize events.
+- **Scroll State Synchronization**: Fixed React state emissions in `useSmoothScrollProgress.ts` to ensure snapped final scroll progress is always delivered to UI components when scrolling comes to a stop.
+- **Audio Race Condition Prevention**: Implemented `sessionToken` validation inside `LuxurySoundtrackEngine` (`audio.ts`), preventing asynchronous `play()` promises from triggering volume fade-in intervals after a `pause()` command.
+- **Async State Safety**: Added `isMountedRef` guards inside `MobileSequencePlayer.tsx` to prevent unmounted component state updates during asynchronous HTMLVideoElement play operations.
+- **Clean Architecture Audit**: Removed unused `MAX_FRAMES_PER_TICK` constant from `experienceConfig.ts`.
+
 ## [1.4.3] - 2026-08-05
 
 ### Fixed

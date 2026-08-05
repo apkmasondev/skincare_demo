@@ -19,9 +19,6 @@ export const EXPERIENCE_CONFIG = {
   // IRIS-style exponential lerp inertia (ms)
   SMOOTHING_MS: 145,
 
-  // Max frame jump permitted per animation frame tick
-  MAX_FRAMES_PER_TICK: 2.25,
-
   // Frame rate standard for GOP1 videos
   VIDEO_FPS: 30,
 
