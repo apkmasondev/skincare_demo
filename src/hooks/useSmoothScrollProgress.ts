@@ -12,7 +12,6 @@ export function useSmoothScrollProgress(runwayRef: React.RefObject<HTMLDivElemen
   const targetProgressRef = useRef<number>(0);
   const renderedProgressRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(performance.now());
-  const lastEmittedProgressRef = useRef<number>(0);
   const rafIdRef = useRef<number | null>(null);
 
   const [progressState, setProgressState] = useState<ScrollProgressState>({
@@ -40,27 +39,22 @@ export function useSmoothScrollProgress(runwayRef: React.RefObject<HTMLDivElemen
       const deltaMs = Math.min(now - lastTimeRef.current, 64);
       lastTimeRef.current = now;
 
+      updateTargetProgress();
+
       const alpha = calculateDecayAlpha(deltaMs, EXPERIENCE_CONFIG.SMOOTHING_MS);
       const prevRendered = renderedProgressRef.current;
       const nextRendered = lerp(prevRendered, targetProgressRef.current, alpha);
 
-      const target = targetProgressRef.current;
-      const isSnapped = Math.abs(nextRendered - target) < 0.0001;
-
-      if (isSnapped) {
-        renderedProgressRef.current = target;
+      if (Math.abs(nextRendered - targetProgressRef.current) < 0.0001) {
+        renderedProgressRef.current = targetProgressRef.current;
       } else {
         renderedProgressRef.current = nextRendered;
       }
 
-      const deltaEmitted = Math.abs(renderedProgressRef.current - lastEmittedProgressRef.current);
-      if (deltaEmitted > 0.015 || (isSnapped && deltaEmitted > 0.0001)) {
-        lastEmittedProgressRef.current = renderedProgressRef.current;
-        setProgressState({
-          targetProgress: targetProgressRef.current,
-          renderedProgress: renderedProgressRef.current,
-        });
-      }
+      setProgressState({
+        targetProgress: targetProgressRef.current,
+        renderedProgress: renderedProgressRef.current,
+      });
 
       rafIdRef.current = requestAnimationFrame(tick);
     };

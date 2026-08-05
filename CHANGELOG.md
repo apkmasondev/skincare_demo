@@ -2,6 +2,11 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.5.1] - 2026-08-05
+
+### Fixed
+- **Restored Smooth Scroll Engine**: Reverted aggressive state emission throttle in `useSmoothScrollProgress.ts`. Continuous `updateTargetProgress()` inside the RAF loop and per-frame state emissions are restored, ensuring desktop scroll scrubbing and UI overlay phase transitions respond fluidly to scroll events.
+
 ## [1.5.0] - 2026-08-05
 
 ### Fixed
