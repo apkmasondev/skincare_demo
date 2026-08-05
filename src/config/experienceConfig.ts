@@ -32,7 +32,7 @@ export const EXPERIENCE_CONFIG = {
   LAYERS: {
     film1: {
       id: 'film1',
-      src: '/assets/video/desktop/01-model-to-hand-gop1.mp4',
+      src: './assets/video/desktop/01-model-to-hand-gop1.mp4',
       totalFrames: 180,
       progressRange: { start: 0.0, end: 0.38 },
       fadeInRange: { start: 0.0, end: 0.02 },
@@ -40,7 +40,7 @@ export const EXPERIENCE_CONFIG = {
     },
     film2: {
       id: 'film2',
-      src: '/assets/video/desktop/02-product-reveal-gop1.mp4',
+      src: './assets/video/desktop/02-product-reveal-gop1.mp4',
       totalFrames: 240,
       progressRange: { start: 0.34, end: 0.78 },
       fadeInRange: { start: 0.34, end: 0.38 }, // Fades in smoothly over Layer 1
@@ -48,7 +48,7 @@ export const EXPERIENCE_CONFIG = {
     },
     film3: {
       id: 'film3',
-      src: '/assets/video/desktop/03-final-packshot-gop1.mp4',
+      src: './assets/video/desktop/03-final-packshot-gop1.mp4',
       totalFrames: 210,
       progressRange: { start: 0.74, end: 1.0 },
       fadeInRange: { start: 0.74, end: 0.78 }, // Fades in smoothly over Layer 2

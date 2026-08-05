@@ -2,6 +2,13 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.4.1] - 2026-08-05
+
+### Fixed
+- Relocated video (`assets/video`) and image (`assets/images`) assets into `public/assets/` to ensure Vite bundle inclusion during `npm run build`.
+- Updated asset manifests (`experienceConfig.ts` and `assetManifest.ts`) to use relative asset URLs (`./assets/...`), fixing 404 video/audio loading errors on GitHub Pages subpaths.
+- Added GitHub Actions deployment workflow (`.github/workflows/deploy.yml`) for automated Vite builds on GitHub Pages.
+
 ## [1.4.0] - 2026-08-05
 
 ### Changed
