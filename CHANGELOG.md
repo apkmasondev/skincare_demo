@@ -2,6 +2,14 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.6.1] - 2026-08-05
+
+### Fixed
+- **Typography Contrast & Legibility**: Re-tuned editorial color palette for high contrast against warm studio background (`#F9F8F6`).
+  - Strengthened `--accent-gold` to a rich deep bronze gold (`#997532`) for crisp overlines, badges, and italic highlights.
+  - Darkened `--text-secondary` (`#36332E`) and `--text-muted` (`#524F48`) to eliminate faded/washed-out body text.
+  - Increased font-weights on `sub-headline`, `hero-subtitle`, `product-title`, `edition-badge`, `overline`, and `luxury-meta-badge`.
+
 ## [1.6.0] - 2026-08-05
 
 ### Added

@@ -115,7 +115,7 @@
   color: var(--accent-gold);
   margin-bottom: 0.85rem;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .phase1-content .headline {
@@ -131,7 +131,7 @@
 .phase1-content .sub-headline {
   font-family: var(--font-sans);
   font-size: clamp(0.8rem, 1.2vw, 1rem);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.28em;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -156,7 +156,7 @@
   color: var(--accent-gold);
   margin-bottom: 0.85rem;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .phase2-content .hero-title {
@@ -172,7 +172,7 @@
 .phase2-content .hero-subtitle {
   font-family: var(--font-sans);
   font-size: clamp(0.95rem, 1.6vw, 1.25rem);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.38em;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -200,7 +200,7 @@
   font-size: 0.65rem;
   letter-spacing: 0.3em;
   color: var(--accent-gold);
-  font-weight: 600;
+  font-weight: 700;
   display: block;
   margin-bottom: 0.6rem;
 }
@@ -217,7 +217,7 @@
 .product-title {
   font-family: var(--font-sans);
   font-size: clamp(0.85rem, 1.2vw, 1.05rem);
-  font-weight: 300;
+  font-weight: 500;
   letter-spacing: 0.32em;
   color: var(--text-secondary);
   margin-top: 0.25rem;
@@ -231,11 +231,11 @@
 
 .gold-accent-divider {
   display: block;
-  width: 32px;
-  height: 1px;
+  width: 36px;
+  height: 1.5px;
   background: var(--accent-gold);
   margin-bottom: 0.85rem;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .tagline {
@@ -248,19 +248,20 @@
 .tagline em {
   font-style: italic;
   color: var(--accent-gold);
+  font-weight: 500;
 }
 
 .description {
-  font-size: 0.84rem;
+  font-size: 0.85rem;
   line-height: 1.65;
   color: var(--text-secondary);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 1.5rem;
 }
 
 .description .highlight-text {
   color: var(--text-primary);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .cta-wrapper {
@@ -334,12 +335,12 @@
 }
 
 .luxury-meta-badge {
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   letter-spacing: 0.32em;
-  color: var(--text-muted);
-  font-weight: 500;
+  color: var(--text-secondary);
+  font-weight: 600;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 /* Top-Right Sound Control */
@@ -379,7 +380,7 @@
 
 .sound-icon-btn.is-active {
   color: var(--accent-gold);
-  border-color: rgba(197, 160, 89, 0.3);
+  border-color: rgba(153, 117, 50, 0.4);
 }
 
 /* Scroll Progress Bar Indicator */
@@ -396,8 +397,8 @@
 .indicator-text {
   font-size: 0.64rem;
   letter-spacing: 0.24em;
-  color: var(--text-muted);
-  font-weight: 500;
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 .indicator-track {
