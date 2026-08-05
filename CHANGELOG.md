@@ -2,6 +2,11 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.4.3] - 2026-08-05
+
+### Fixed
+- Fixed fast-scroll video layer frame lag: eliminated double-inertia frame capping (`MAX_FRAMES_PER_TICK`) inside `useVideoScrubber.ts`. Video `currentTime` now synchronizes 1:1 with `renderedProgress` (which is already smoothed by 145ms exponential decay lerp), ensuring Film 2 and Film 3 always start at exact Frame 0 during rapid scrolling transitions.
+
 ## [1.4.2] - 2026-08-05
 
 ### Fixed
