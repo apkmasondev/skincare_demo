@@ -1,0 +1,63 @@
+/* Global Design System & Reset for APKMASON Skin Elixir */
+
+:root {
+  /* Color Tokens */
+  --bg-studio: #F9F8F6;
+  --bg-studio-warm: #F4F2ED;
+  --text-primary: #181716;
+  --text-secondary: #5E5B54;
+  --text-muted: #8E8B83;
+  --accent-gold: #C5A059;
+  --accent-champagne: #E6D8BA;
+  
+  /* Glass Tokens */
+  --glass-bg: rgba(249, 248, 246, 0.65);
+  --glass-border: rgba(24, 23, 22, 0.08);
+  --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  
+  /* Typography Tokens */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Transitions */
+  --ease-editorial: cubic-bezier(0.25, 1, 0.35, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-studio);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}

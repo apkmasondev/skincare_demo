@@ -1,0 +1,556 @@
+/* Experience CSS — Pure Editorial Luxury System (Zero Background Boxes) */
+
+.apkmason-app {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-studio);
+}
+
+/* ==========================================================================
+   DESKTOP SCROLL STAGE
+   ========================================================================== */
+
+.desktop-scroll-runway {
+  position: relative;
+  width: 100%;
+}
+
+.desktop-sticky-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.studio-background {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, var(--bg-studio) 70%, var(--bg-studio-warm) 100%);
+  z-index: 1;
+}
+
+.desktop-video-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.15s linear;
+  will-change: opacity;
+}
+
+.desktop-video-layer.layer-1 {
+  z-index: 2;
+}
+
+.desktop-video-layer.layer-2 {
+  z-index: 3;
+}
+
+.desktop-video-layer.layer-3 {
+  z-index: 4;
+}
+
+/* ==========================================================================
+   PURE EDITORIAL OVERLAY SYSTEM (NO BACKGROUND BOXES)
+   ========================================================================== */
+
+.experience-text-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.25rem 3.5rem;
+}
+
+/* Base Phase Animations */
+.overlay-phase {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s var(--ease-editorial), transform 0.7s var(--ease-editorial);
+  pointer-events: none;
+}
+
+.overlay-phase.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.pure-editorial-text {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Phase 1: Top-Left Negative Space */
+.phase-1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 16vh;
+  padding-left: 7vw;
+}
+
+.phase1-content {
+  text-align: left;
+  max-width: 520px;
+}
+
+.phase1-content .overline {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  color: var(--accent-gold);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.phase1-content .headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 4.8vw, 4.5rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  line-height: 1.08;
+  margin-bottom: 0.5rem;
+}
+
+.phase1-content .sub-headline {
+  font-family: var(--font-sans);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* Phase 2: Left Negative Space (Clear of Central Hand & Bottle) */
+.phase-2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 7vw;
+}
+
+.phase2-content {
+  text-align: left;
+  max-width: 480px;
+}
+
+.phase2-content .overline {
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  color: var(--accent-gold);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.phase2-content .hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.4rem, 6.5vw, 5.8rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--text-primary);
+  line-height: 0.95;
+  margin-bottom: 0.4rem;
+}
+
+.phase2-content .hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  font-weight: 300;
+  letter-spacing: 0.38em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+/* Phase 3: Desktop Pure Side Composition */
+.phase3-layout {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6vw;
+  pointer-events: none;
+}
+
+.phase3-left {
+  max-width: 340px;
+  text-align: left;
+  pointer-events: auto;
+}
+
+.edition-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--accent-gold);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.product-title {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+  font-weight: 300;
+  letter-spacing: 0.32em;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.phase3-right {
+  max-width: 360px;
+  text-align: left;
+  pointer-events: auto;
+}
+
+.tagline {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.description {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin-bottom: 1.75rem;
+}
+
+.luxury-cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.25rem;
+  background: var(--text-primary);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  border-radius: 100px;
+  transition: transform 0.3s var(--ease-smooth), background-color 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+.luxury-cta-btn:hover {
+  transform: translateY(-2px);
+  background-color: #000000;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+/* Top-Right Sound Control */
+.top-right-sound-layer {
+  position: absolute;
+  top: 2.25rem;
+  right: 3.5rem;
+  z-index: 30;
+}
+
+.sound-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(249, 248, 246, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.25s var(--ease-smooth);
+}
+
+.sound-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.06);
+}
+
+.sound-icon-btn.is-active {
+  color: var(--accent-gold);
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+/* Scroll Progress Bar Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 20;
+}
+
+.indicator-text {
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.indicator-track {
+  width: 60px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.indicator-bar {
+  height: 100%;
+  background: var(--accent-gold);
+  transition: width 0.1s linear;
+}
+
+/* ==========================================================================
+   MOBILE EXPERIENCE (Zero Background Boxes, Pure Floating Typography)
+   ========================================================================== */
+
+.is-mobile .experience-text-overlay {
+  padding: 1.5rem 1.25rem;
+}
+
+.is-mobile .phase-1 {
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14vh;
+  padding-left: 0;
+  text-align: center;
+}
+
+.is-mobile .phase1-content {
+  text-align: center;
+  max-width: 90vw;
+}
+
+.is-mobile .phase-2 {
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 14vh;
+  padding-left: 0;
+  text-align: center;
+}
+
+.is-mobile .phase2-content {
+  text-align: center;
+  max-width: 90vw;
+}
+
+.is-mobile .phase3-layout {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 1.25rem 5.5rem 1.25rem;
+}
+
+.is-mobile .phase3-left {
+  position: absolute;
+  top: 12vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 90vw;
+}
+
+.is-mobile .phase3-right {
+  position: absolute;
+  bottom: 5.5rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 400px;
+}
+
+.is-mobile .description {
+  font-size: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.is-mobile .luxury-cta-btn {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+}
+
+.mobile-sequence-stage {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  background: var(--bg-studio);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobile-sequence-stage .top-right-sound-layer {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.mobile-controls-bar {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 30;
+}
+
+.mobile-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(249, 248, 246, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  box-shadow: var(--glass-shadow);
+}
+
+/* ==========================================================================
+   POSTER FALLBACK
+   ========================================================================== */
+
+.poster-fallback-container {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-studio);
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.poster-image-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poster-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(24, 23, 22, 0.5) 0%, transparent 60%);
+}
+
+.poster-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: #FFFFFF;
+  max-width: 580px;
+}
+
+.brand-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--accent-champagne);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.poster-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+}
+
+.poster-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.poster-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 0.9rem 2.25rem;
+  background: #FFFFFF;
+  color: #181716;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  border-radius: 100px;
+}
+
+.secondary-button {
+  padding: 0.9rem 2.25rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 100px;
+}
