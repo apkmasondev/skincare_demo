@@ -2,6 +2,16 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.6.0] - 2026-08-05
+
+### Added
+- **Ultra-Luxury Atelier Design System**:
+  - Replaced flat solid CTA button with a high-end frosted glass button featuring champagne-gold borders, metallic directional arrow (`→`), and a light shimmer reflection sweep (`::after` sweep gradient).
+  - Added minimalist gold accent divider line (`.gold-accent-divider`) above final phase tagline.
+  - Added luxury product origin metadata badge (`50 ML / 1.7 FL. OZ. · FORMULATED IN SWITZERLAND`) below CTA.
+  - Enhanced typography contrast: styled tagline key phrases in Cormorant Garamond italics and highlighted core active terms (`cellular clarity`, `immediate luminosity`).
+  - Ensured 100% responsive layout symmetry across desktop and mobile viewports.
+
 ## [1.5.1] - 2026-08-05
 
 ### Fixed

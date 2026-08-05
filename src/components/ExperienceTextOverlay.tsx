@@ -44,9 +44,10 @@ export const ExperienceTextOverlay: React.FC<ExperienceTextOverlayProps> = ({
 
           {/* Right side composition */}
           <div className="phase3-right pure-editorial-text">
-            <p className="tagline">Radiance in its purest form</p>
+            <span className="gold-accent-divider" aria-hidden="true" />
+            <p className="tagline">Radiance in its <em>purest form</em></p>
             <p className="description">
-              A transformative glass-encapsulated formula delivering cellular clarity and immediate luminosity.
+              A transformative glass-encapsulated formula delivering <strong className="highlight-text">cellular clarity</strong> and <strong className="highlight-text">immediate luminosity</strong>.
             </p>
             <div className="cta-wrapper">
               <button
@@ -56,8 +57,10 @@ export const ExperienceTextOverlay: React.FC<ExperienceTextOverlayProps> = ({
                   alert('Thank you for exploring APKMASON Skin Elixir. Pre-orders opening soon.');
                 }}
               >
-                <span>EXPLORE ELIXIR</span>
+                <span className="cta-text">EXPLORE ELIXIR</span>
+                <span className="cta-arrow" aria-hidden="true">→</span>
               </button>
+              <div className="luxury-meta-badge">50 ML / 1.7 FL. OZ. &nbsp;·&nbsp; FORMULATED IN SWITZERLAND</div>
             </div>
           </div>
         </div>
