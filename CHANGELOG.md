@@ -2,6 +2,11 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.7.0] - 2026-08-05
+
+### Changed
+- **Chapter 02 Editorial Copy**: Updated Chapter 02 headline to `SCULPTED IN GLASS` and subtitle to `BOTANICAL PRECISION`. This eliminates repetitive brand name usage before Chapter 03 and enhances narrative progression during the product bottle reveal.
+
 ## [1.6.1] - 2026-08-05
 
 ### Fixed

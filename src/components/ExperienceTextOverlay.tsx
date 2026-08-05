@@ -23,12 +23,12 @@ export const ExperienceTextOverlay: React.FC<ExperienceTextOverlayProps> = ({
         </div>
       </div>
 
-      {/* Phase 2 Overlay (Mid: APKMASON Skin Elixir Reveal - Positioned in Side Negative Space) */}
+      {/* Phase 2 Overlay (Mid: Product Reveal - Positioned in Side Negative Space) */}
       <div className={`overlay-phase phase-2 ${phase === 'phase2' ? 'active' : ''}`}>
         <div className="phase2-content pure-editorial-text">
           <p className="overline">CHAPTER 02</p>
-          <h1 className="hero-title">APKMASON</h1>
-          <h2 className="hero-subtitle">SKIN ELIXIR</h2>
+          <h1 className="hero-title">SCULPTED IN GLASS</h1>
+          <h2 className="hero-subtitle">BOTANICAL PRECISION</h2>
         </div>
       </div>
 
