@@ -2,6 +2,12 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.7.3] - 2026-08-06
+
+### Fixed
+- **Unique GitHub Pages Artifact Names**: Configured dynamic artifact naming (`github-pages-${{ github.run_id }}-${{ github.run_attempt }}`) in `upload-pages-artifact` and `deploy-pages` inside `.github/workflows/deploy.yml`. This completely eliminates artifact collisions during re-runs.
+- **Workflow Concurrency**: Set `cancel-in-progress: false` to ensure deployments complete sequentially without being interrupted midway.
+
 ## [1.7.2] - 2026-08-06
 
 ### Fixed
