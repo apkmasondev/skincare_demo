@@ -2,6 +2,11 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.7.1] - 2026-08-06
+
+### Fixed
+- **Scroll Indicator Visibility Threshold**: Synchronized `ExperienceTextOverlay.tsx` updates from `apkmason-skin-elixir` to `skincare`. The desktop scroll indicator now hides when `renderedProgress >= 0.85`, preventing overlay overlap with Phase 3 typography during the final packshot.
+
 ## [1.7.0] - 2026-08-05
 
 ### Changed

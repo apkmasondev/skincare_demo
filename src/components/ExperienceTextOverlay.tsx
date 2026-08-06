@@ -67,7 +67,7 @@ export const ExperienceTextOverlay: React.FC<ExperienceTextOverlayProps> = ({
       </div>
 
       {/* Subtle Scroll / Progress Indicator for Desktop */}
-      {!isMobile && renderedProgress > 0 && renderedProgress < 0.95 && (
+      {!isMobile && renderedProgress < 0.85 && (
         <div className="scroll-indicator">
           <span className="indicator-text">SCROLL TO TRANSFORM</span>
           <div className="indicator-track">
