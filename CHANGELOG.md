@@ -2,6 +2,11 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.7.2] - 2026-08-06
+
+### Fixed
+- **GitHub Pages Workflow Timeout**: Configured `timeout-minutes: 30` and `actions/deploy-pages@v4` timeout `1200000` (20 minutes) in `.github/workflows/deploy.yml` to ensure large video media deployments never fail on GitHub Page CDN propagation.
+
 ## [1.7.1] - 2026-08-06
 
 ### Fixed
