@@ -1,8 +1,9 @@
 import React from 'react';
-import { OverlayPhase } from '../hooks/useTimedOverlay';
+import { OverlayPhaseState } from '../hooks/useTimedOverlay';
+import { PreOrderCta } from './PreOrderCta';
 
 interface ExperienceTextOverlayProps {
-  phase: OverlayPhase;
+  phase: OverlayPhaseState;
   renderedProgress?: number;
   isMobile?: boolean;
 }
@@ -50,16 +51,7 @@ export const ExperienceTextOverlay: React.FC<ExperienceTextOverlayProps> = ({
               A transformative glass-encapsulated formula delivering <strong className="highlight-text">cellular clarity</strong> and <strong className="highlight-text">immediate luminosity</strong>.
             </p>
             <div className="cta-wrapper">
-              <button
-                type="button"
-                className="luxury-cta-btn"
-                onClick={() => {
-                  alert('Thank you for exploring APKMASON Skin Elixir. Pre-orders opening soon.');
-                }}
-              >
-                <span className="cta-text">EXPLORE ELIXIR</span>
-                <span className="cta-arrow" aria-hidden="true">→</span>
-              </button>
+              <PreOrderCta />
               <div className="luxury-meta-badge">50 ML / 1.7 FL. OZ. &nbsp;·&nbsp; FORMULATED IN SWITZERLAND</div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ASSET_MANIFEST } from '../config/assetManifest';
+import { PreOrderCta } from './PreOrderCta';
 
 interface PosterFallbackProps {
   onPlayAnyway?: () => void;
@@ -26,11 +27,15 @@ export const PosterFallback: React.FC<PosterFallbackProps> = ({ onPlayAnyway }) 
         <p className="poster-subtitle">Radiance in its purest form</p>
 
         <div className="poster-actions">
-          <button className="cta-button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            EXPLORE ELIXIR
-          </button>
+          {/* The page does not scroll in this mode, so the CTA carries the same
+              pre-order message as the main experience rather than a no-op scroll. */}
+          <PreOrderCta
+            buttonClassName="cta-button"
+            showArrow={false}
+            className="preorder-cta--center"
+          />
           {onPlayAnyway && (
-            <button className="secondary-button" onClick={onPlayAnyway}>
+            <button type="button" className="secondary-button" onClick={onPlayAnyway}>
               WATCH CAMPAIGN FILM
             </button>
           )}

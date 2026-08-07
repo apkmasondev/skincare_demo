@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { EXPERIENCE_CONFIG } from '../config/experienceConfig';
 import { clamp } from '../utils/clamp';
 
@@ -12,6 +12,12 @@ export function useVideoScrubber(
   renderedProgressRef: React.RefObject<number>,
   videoRefs: VideoLayerRefs
 ) {
+  // Callers build `videoRefs` as an object literal, so its identity changes on every
+  // render. Reading it through a ref keeps the RAF loop alive for the whole mount
+  // instead of being cancelled and restarted each render.
+  const videoRefsRef = useRef(videoRefs);
+  videoRefsRef.current = videoRefs;
+
   useEffect(() => {
     let animationFrameId: number;
 
@@ -20,7 +26,7 @@ export function useVideoScrubber(
       const { LAYERS, VIDEO_FPS } = EXPERIENCE_CONFIG;
 
       (['film1', 'film2', 'film3'] as const).forEach((layerId) => {
-        const video = videoRefs[layerId].current;
+        const video = videoRefsRef.current[layerId].current;
         if (!video) return;
 
         const config = LAYERS[layerId];
@@ -40,14 +46,12 @@ export function useVideoScrubber(
           } 
           // Fade out phase
           else if (overallProgress > config.fadeOutRange.start) {
-            opacity = clamp(
-              1 -
-                (overallProgress - config.fadeOutRange.start) /
-                  (config.fadeOutRange.end - config.fadeOutRange.start),
-              0,
-              1
-            );
-          } 
+            const fadeOutSpan = config.fadeOutRange.end - config.fadeOutRange.start;
+            opacity =
+              fadeOutSpan > 0
+                ? clamp(1 - (overallProgress - config.fadeOutRange.start) / fadeOutSpan, 0, 1)
+                : 0; // Zero-length fade out = instant cut, never NaN
+          }
           // Solid phase
           else {
             opacity = 1;
@@ -86,5 +90,5 @@ export function useVideoScrubber(
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
-  }, [renderedProgressRef, videoRefs]);
+  }, [renderedProgressRef]);
 }

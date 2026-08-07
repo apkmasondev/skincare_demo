@@ -72,11 +72,12 @@ class LuxurySoundtrackEngine {
   }
 
   public pause() {
-    this.sessionToken++;
-    const currentToken = this.sessionToken;
-
     if (!this.audio || !this.isPlaying) return;
     const audio = this.audio;
+
+    // Invalidate any in-flight fade only once we know we are actually going to fade out.
+    this.sessionToken++;
+    const currentToken = this.sessionToken;
 
     if (this.fadeInterval !== null) {
       window.clearInterval(this.fadeInterval);

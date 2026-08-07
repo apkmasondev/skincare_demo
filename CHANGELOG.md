@@ -2,6 +2,12 @@
 
 All notable changes to the APKMASON Skin Elixir project will be documented in this file.
 
+## [1.8.0] - 2026-08-07
+
+### Added
+- **Interactive Pre-Order CTA Component**: Added `PreOrderCta.tsx` with smooth in-composition confirmation animation ("Pre-orders opening soon — thank you") replacing standard browser alert dialogs.
+- **Refined Media & Layout Transitions**: Updated media mode hooks, video scrubbing lerp decays, and responsive CSS overlays for fluid cross-device playback.
+
 ## [1.7.3] - 2026-08-06
 
 ### Fixed

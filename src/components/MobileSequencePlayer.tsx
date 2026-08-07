@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Play, Pause, RotateCcw } from 'lucide-react';
 import { ASSET_MANIFEST } from '../config/assetManifest';
-import { getMobileOverlayPhase, OverlayPhase } from '../hooks/useTimedOverlay';
+import { getMobileOverlayPhase, OverlayPhaseState } from '../hooks/useTimedOverlay';
 import { ExperienceTextOverlay } from './ExperienceTextOverlay';
 import { SoundToggle } from './SoundToggle';
+import { luxurySoundtrack } from '../utils/audio';
 
 export const MobileSequencePlayer: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -11,7 +12,7 @@ export const MobileSequencePlayer: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [isEnded, setIsEnded] = useState(false);
-  const [phase, setPhase] = useState<OverlayPhase>('phase1');
+  const [phase, setPhase] = useState<OverlayPhaseState>('phase1');
 
   useEffect(() => {
     isMountedRef.current = true;
@@ -32,8 +33,20 @@ export const MobileSequencePlayer: React.FC = () => {
       }
     };
 
+    // Mirror the element's real playback state instead of assuming our own calls
+    // won. `autoPlay` and the manual play() below can interrupt each other, which
+    // would otherwise leave the play/pause button showing the wrong icon.
+    const handlePlay = () => {
+      if (isMountedRef.current) setIsPlaying(true);
+    };
+    const handlePause = () => {
+      if (isMountedRef.current) setIsPlaying(false);
+    };
+
     video.addEventListener('timeupdate', handleTimeUpdate);
     video.addEventListener('ended', handleEnded);
+    video.addEventListener('play', handlePlay);
+    video.addEventListener('pause', handlePause);
 
     // Attempt autoplay
     video.play().catch(() => {
@@ -46,6 +59,10 @@ export const MobileSequencePlayer: React.FC = () => {
       isMountedRef.current = false;
       video.removeEventListener('timeupdate', handleTimeUpdate);
       video.removeEventListener('ended', handleEnded);
+      video.removeEventListener('play', handlePlay);
+      video.removeEventListener('pause', handlePause);
+      // Stop the singleton soundtrack; it has no owner once this stage unmounts.
+      luxurySoundtrack.stop();
     };
   }, []);
 

@@ -8,6 +8,10 @@ export interface ScrollProgressState {
   renderedProgress: number;
 }
 
+// Smallest progress delta worth pushing through React. Below this the change is
+// invisible (< 0.05% of the runway) and only costs a full re-render of the stage.
+const PUBLISH_EPSILON = 0.0005;
+
 export function useSmoothScrollProgress(runwayRef: React.RefObject<HTMLDivElement | null>) {
   const targetProgressRef = useRef<number>(0);
   const renderedProgressRef = useRef<number>(0);
@@ -18,6 +22,7 @@ export function useSmoothScrollProgress(runwayRef: React.RefObject<HTMLDivElemen
     targetProgress: 0,
     renderedProgress: 0,
   });
+  const publishedRef = useRef<ScrollProgressState>(progressState);
 
   useEffect(() => {
     const updateTargetProgress = () => {
@@ -51,24 +56,34 @@ export function useSmoothScrollProgress(runwayRef: React.RefObject<HTMLDivElemen
         renderedProgressRef.current = nextRendered;
       }
 
-      setProgressState({
-        targetProgress: targetProgressRef.current,
-        renderedProgress: renderedProgressRef.current,
-      });
+      const published = publishedRef.current;
+      const renderedDelta = Math.abs(renderedProgressRef.current - published.renderedProgress);
+      const targetDelta = Math.abs(targetProgressRef.current - published.targetProgress);
+      // Always commit the frame where the lerp settles, so the last render is exact.
+      const justSettled =
+        renderedProgressRef.current === targetProgressRef.current &&
+        renderedProgressRef.current !== published.renderedProgress;
+
+      if (renderedDelta > PUBLISH_EPSILON || targetDelta > PUBLISH_EPSILON || justSettled) {
+        const next: ScrollProgressState = {
+          targetProgress: targetProgressRef.current,
+          renderedProgress: renderedProgressRef.current,
+        };
+        publishedRef.current = next;
+        setProgressState(next);
+      }
 
       rafIdRef.current = requestAnimationFrame(tick);
     };
 
-    window.addEventListener('scroll', updateTargetProgress, { passive: true });
-    window.addEventListener('resize', updateTargetProgress, { passive: true });
+    // No scroll/resize listeners needed: the RAF loop reads the runway rect every
+    // frame anyway, and listening as well would force a second layout per event.
     updateTargetProgress();
 
     lastTimeRef.current = performance.now();
     rafIdRef.current = requestAnimationFrame(tick);
 
     return () => {
-      window.removeEventListener('scroll', updateTargetProgress);
-      window.removeEventListener('resize', updateTargetProgress);
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
       }

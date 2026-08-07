@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { EXPERIENCE_CONFIG } from '../config/experienceConfig';
 import { ASSET_MANIFEST } from '../config/assetManifest';
 import { useSmoothScrollProgress } from '../hooks/useSmoothScrollProgress';
@@ -6,6 +6,7 @@ import { useVideoScrubber, VideoLayerRefs } from '../hooks/useVideoScrubber';
 import { getDesktopOverlayPhase } from '../hooks/useTimedOverlay';
 import { ExperienceTextOverlay } from './ExperienceTextOverlay';
 import { SoundToggle } from './SoundToggle';
+import { luxurySoundtrack } from '../utils/audio';
 
 export const DesktopScrollStage: React.FC = () => {
   const runwayRef = useRef<HTMLDivElement>(null);
@@ -15,14 +16,22 @@ export const DesktopScrollStage: React.FC = () => {
   const film2Ref = useRef<HTMLVideoElement>(null);
   const film3Ref = useRef<HTMLVideoElement>(null);
 
-  const videoRefs: VideoLayerRefs = {
-    film1: film1Ref,
-    film2: film2Ref,
-    film3: film3Ref,
-  };
+  const videoRefs: VideoLayerRefs = useMemo(
+    () => ({
+      film1: film1Ref,
+      film2: film2Ref,
+      film3: film3Ref,
+    }),
+    []
+  );
 
   // Sound state
   const [isMuted, setIsMuted] = useState(true);
+
+  // The soundtrack engine is a module singleton, so it outlives this component.
+  // Without this it keeps looping after a switch to the mobile/reduced-motion stage,
+  // with no visible control left to stop it.
+  useEffect(() => () => luxurySoundtrack.stop(), []);
 
   // Smooth scroll progress hook (145ms exponential lerp inertia)
   const { renderedProgressRef, renderedProgress } = useSmoothScrollProgress(runwayRef);

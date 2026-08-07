@@ -32,7 +32,7 @@ export const EXPERIENCE_CONFIG = {
       src: './assets/video/desktop/01-model-to-hand-gop1.mp4',
       totalFrames: 180,
       progressRange: { start: 0.0, end: 0.38 },
-      fadeInRange: { start: 0.0, end: 0.02 },
+      fadeInRange: { start: 0.0, end: 0.0 }, // Solid from the very first frame (no fade-up from empty stage)
       fadeOutRange: { start: 1.0, end: 1.0 }, // Stays solid under Layer 2
     },
     film2: {

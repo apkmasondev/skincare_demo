@@ -8,6 +8,10 @@
   --text-secondary: #36332E;
   --text-muted: #524F48;
   --accent-gold: #997532;
+  /* Deeper gold for small type only. The display gold above measures 4.00:1 on
+     --bg-studio, under the 4.5:1 AA floor for text below ~18px; this clears it
+     while staying on-brand. Keep --accent-gold for rules, arrows and fills. */
+  --accent-gold-text: #8A6829;
   --accent-champagne: #D4C19C;
   
   /* Glass Tokens */
@@ -65,7 +69,16 @@ button {
   user-select: none;
 }
 
+/* Suppress the focus ring for pointer interaction only — keyboard users must keep
+   a visible focus indicator, otherwise the sound toggle, CTA and mobile controls
+   become impossible to navigate. */
 button:focus {
   outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent-gold-text);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
